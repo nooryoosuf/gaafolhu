@@ -2,6 +2,7 @@
 import { getAllModels } from '../lib/models';
 import Reveal from '../components/Reveal';
 import Marquee from '../components/Marquee';
+import Testimonials from '../components/Testimonials';
 const STATS = [
   '1:35 — 1:200 scale',
   'Basswood & coral',
@@ -13,24 +14,6 @@ const STATS = [
 const MATERIALS = [
   'Basswood', 'Coral stone', 'Coconut timber', 'Card', 'Resin',
   'Plaster', 'Foam', 'Acrylic', 'Sand', 'Cadjan thatch',
-];
-
-const TESTIMONIALS = [
-  {
-    quote: 'The Kalhuvakaru study sits in my office and people touch it before they greet me. The joinery is that convincing.',
-    name: 'Ahmed N.',
-    role: 'Private collector — Malé',
-  },
-  {
-    quote: 'He walked our guesthouse twice, measured everything, and the model found details we had stopped seeing. Guests photograph it daily.',
-    name: 'Mariyam S.',
-    role: 'Guesthouse host — Fulhadhoo',
-  },
-  {
-    quote: 'The dome, the minaret, the stone banding — all read exactly. It is the clearest record of the building I have seen.',
-    name: 'Ibrahim R.',
-    role: 'Interior stylist — Hulhumalé',
-  },
 ];
 
 export default function Home() {
@@ -184,17 +167,8 @@ export default function Home() {
             <p className="eyebrow">Testimonials</p>
             <h2 className="h-section">Words from<br />the owners.</h2>
           </Reveal>
-          <div className="testi-grid" style={{ marginTop: 'clamp(28px, 4vw, 48px)' }}>
-            {TESTIMONIALS.map((t, idx) => (
-              <Reveal key={t.name} delay={idx * 90} className="quote-card">
-                <span className="qm" aria-hidden="true">"</span>
-                <blockquote className="qt">{t.quote}</blockquote>
-                <div className="quote-foot">
-                  <span className="qn">{t.name}</span>
-                  <span className="qr">{t.role}</span>
-                </div>
-              </Reveal>
-            ))}
+          <div style={{ marginTop: 'clamp(28px, 4vw, 48px)' }}>
+            <Testimonials />
           </div>
         </div>
       </section>
