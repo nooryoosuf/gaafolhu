@@ -390,6 +390,30 @@ code {
   font-size: 12px; color: var(--muted);
 }
 
+/* ---------- testimonials ---------- */
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 28px); }
+.quote-card {
+  display: flex; flex-direction: column; gap: 16px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: clamp(24px, 2.8vw, 36px);
+  transition: transform 0.6s var(--ease), border-color 0.4s ease, box-shadow 0.6s var(--ease);
+}
+.quote-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+.quote-card .qm {
+  font-size: 46px; line-height: 0; height: 20px; font-weight: 600;
+  letter-spacing: -0.04em; color: var(--accent); opacity: 0.55;
+}
+.quote-card .qt {
+  margin: 0; flex: 1 0 auto;
+  font-size: clamp(15.5px, 1.5vw, 17.5px); line-height: 1.62; letter-spacing: -0.01em;
+  color: var(--txt-2);
+}
+.quote-foot { display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
+.quote-foot .qn { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.quote-foot .qr { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+@media (max-width: 960px) { .testi-grid { grid-template-columns: 1fr; } }
+
 /* ============================================================
    Model detail page
    ============================================================ */

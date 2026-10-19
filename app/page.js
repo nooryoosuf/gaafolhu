@@ -15,6 +15,24 @@ const MATERIALS = [
   'Plaster', 'Foam', 'Acrylic', 'Sand', 'Cadjan thatch',
 ];
 
+const TESTIMONIALS = [
+  {
+    quote: 'The Kalhuvakaru study sits in my office and people touch it before they greet me. The joinery is that convincing.',
+    name: 'Ahmed N.',
+    role: 'Private collector — Malé',
+  },
+  {
+    quote: 'He walked our guesthouse twice, measured everything, and the model found details we had stopped seeing. Guests photograph it daily.',
+    name: 'Mariyam S.',
+    role: 'Guesthouse host — Fulhadhoo',
+  },
+  {
+    quote: 'The dome, the minaret, the stone banding — all read exactly. It is the clearest record of the building I have seen.',
+    name: 'Ibrahim R.',
+    role: 'Interior stylist — Hulhumalé',
+  },
+];
+
 export default function Home() {
   const models = getAllModels();
 
@@ -90,6 +108,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- ABOUT ---------- */}
+      <section className="section" id="studio">
+        <div className="wrap about-grid">
+          <div className="about-copy">
+            <Reveal as="p" className="eyebrow">Who we are</Reveal>
+            <Reveal delay={80} as="p" className="body-lg">
+              Most miniature work looks like a toy. Ours is meant to look like evidence —
+              a record of how an island is actually put together.
+            </Reveal>
+            <Reveal delay={160} as="p" className="small">
+              Every study starts with a survey — a house measured, a hull traced, a street
+              walked — and ends as a model that answers questions about structure, proportion
+              and the quiet logic of building on a reef.
+            </Reveal>
+            <Reveal delay={240} className="hero-cta">
+              <a className="btn btn-ghost" href="/about">More about the studio</a>
+            </Reveal>
+          </div>
+
+          <Reveal className="collage" delay={120}>
+            <figure className="c1"><img src="/studio/me.jpg" alt="The maker — holding the Black Pearl" loading="lazy" /></figure>
+            <figure className="c2"><img src={models[2].image} alt={models[2].title} loading="lazy" /></figure>
+            <figure className="c3"><img src={models[4].image} alt={models[4].title} loading="lazy" /></figure>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ---------- FILMSTRIP ---------- */}
       <section className="film">
         <div className="film-track" style={{ '--speed': '72s' }}>
@@ -130,6 +175,28 @@ export default function Home() {
             </span>
           ))}
         </Marquee>
+      </section>
+
+      {/* ---------- TESTIMONIALS ---------- */}
+      <section className="section">
+        <div className="wrap">
+          <Reveal>
+            <p className="eyebrow">Testimonials</p>
+            <h2 className="h-section">Words from<br />the owners.</h2>
+          </Reveal>
+          <div className="testi-grid" style={{ marginTop: 'clamp(28px, 4vw, 48px)' }}>
+            {TESTIMONIALS.map((t, idx) => (
+              <Reveal key={t.name} delay={idx * 90} className="quote-card">
+                <span className="qm" aria-hidden="true">"</span>
+                <blockquote className="qt">{t.quote}</blockquote>
+                <div className="quote-foot">
+                  <span className="qn">{t.name}</span>
+                  <span className="qr">{t.role}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
     </>
